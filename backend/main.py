@@ -12,6 +12,8 @@ allowed_origins = [
     "http://127.0.0.1:3000",
     "http://localhost:3001",
     "http://127.0.0.1:3001",
+    "https://inktrace-azure.vercel.app",
+    "https://*.vercel.app",
 ]
 if os.getenv("FRONTEND_URL"):
     allowed_origins.append(os.getenv("FRONTEND_URL"))
