@@ -5,7 +5,7 @@ import json
 import os
 from datetime import datetime
 
-router = APIRouter()
+router = APIRouter(prefix="/api/v1/deepwork")
 
 DATA_DIR = "data"
 SESSIONS_FILE = os.path.join(DATA_DIR, "deepwork_sessions.json")

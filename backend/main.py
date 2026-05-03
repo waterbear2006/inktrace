@@ -29,7 +29,7 @@ from backend.api import routes_library, routes_notes, routes_chat, routes_deepwo
 app.include_router(routes_library.router)
 app.include_router(routes_notes.router)
 app.include_router(routes_chat.router)
-app.include_router(routes_deepwork.router, prefix="/api/v1/deepwork")
+app.include_router(routes_deepwork.router)
 app.include_router(routes_tencent_doc.router)
 app.include_router(routes_upload.router)
 app.include_router(routes_search.router)
