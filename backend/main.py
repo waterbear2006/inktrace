@@ -34,6 +34,10 @@ app.include_router(routes_tencent_doc.router)
 app.include_router(routes_upload.router)
 app.include_router(routes_search.router)
 
+@app.get("/")
+async def root():
+    return {"message": "InkTrace API", "version": "1.0", "docs": "/docs"}
+
 if __name__ == "__main__":
     port = int(os.getenv("PORT", 8000))
     uvicorn.run("backend.main:app", host="0.0.0.0", port=port, reload=False)

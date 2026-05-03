@@ -1,58 +1,22 @@
-# InkTrace 后端依赖
-# Python 3.8+ 环境要求
-
-## 核心框架
-fastapi==0.115.0
-uvicorn[standard]==0.32.0
-pydantic==2.10.0
-pydantic-core==2.23.0
-
-## 数据处理与解析
-pandas==2.2.3
-numpy==1.26.4
-python-multipart==0.0.12
-
-## AI与机器学习
-openai==1.55.0
-transformers==4.46.0
-torch==2.5.1
-tokenizers==0.21.0
-sentence-transformers==3.2.0
-faiss-cpu==1.9.0
-
-## 文本处理
-jieba==0.42.1
-langchain==0.3.13
-langchain-community==0.3.13
-
-## 网络与HTTP
-httpx==0.28.1
-requests==2.32.3
-aiofiles==24.1.0
-
-## 工具与工具包
-tqdm==4.67.1
-python-dotenv==1.0.1
-python-jose[cryptography]==3.3.0
-passlib[bcrypt]==1.7.4
-bcrypt==4.2.1
-
-## 开发与测试
-pytest==8.3.4
-pytest-asyncio==0.24.0
-black==24.10.0
-flake8==7.1.1
-mypy==1.14.0
-
-## 系统工具
-psutil==6.1.1
-
-# 可选依赖（根据需求安装）
-# tensorflow==2.15.0  # 如果需要TensorFlow支持
-# scikit-learn==1.3.2  # 如果需要机器学习功能
-# matplotlib==3.8.2  # 如果需要可视化
-
-# 环境特定依赖
-# 生产环境可能需要：
-# gunicorn==21.2.0
-# supervisor==4.2.5
+fastapi
+uvicorn
+openai
+transformers
+torch
+sentence-transformers
+faiss-cpu
+pandas
+numpy
+jieba
+langchain
+langchain-community
+httpx
+requests
+aiofiles
+tqdm
+python-dotenv
+psutil
+python-multipart
+pypinyin
+thefuzz
+python-Levenshtein
