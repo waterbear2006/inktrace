@@ -50,7 +50,7 @@ import {
 } from 'lucide-react';
 import { THEMES, DATA_SOURCES, VOLUMES } from './constants';
 
-const API_BASE = (import.meta as any).env?.VITE_API_BASE || "https://huggingface.co/spaces/Ruizi2006/inktrace";
+const API_BASE = (import.meta as any).env?.VITE_API_BASE || "https://huggingface.co/spaces/Ruizi2006/inktrace/api/v1";
 
 type View = 'library' | 'deep-work' | 'assets' | 'settings';
 
