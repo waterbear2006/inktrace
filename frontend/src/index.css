@@ -1,0 +1,191 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Noto+Serif+SC:wght@400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Noto Serif SC", "STSong", serif;
+
+  /* 汝窑天青 · 瓷器色盘 */
+  --color-primary: #5d8278;
+  --color-primary-container: #a8c4ba;
+  --color-primary-fixed: #d0e5db;
+  --color-surface: #f4f6f5;
+  --color-surface-container: #e9edeb;
+  --color-on-surface: #2a2e2c;
+  --color-outline-variant: #c1c7c4;
+  --color-primary-foreground: #ffffff;
+  --color-surface-container-high: #dde3e0;
+}
+
+@layer base {
+  body {
+    @apply bg-surface text-on-surface font-sans antialiased selection:bg-primary-container/20;
+    background-image:
+      radial-gradient(rgba(93, 130, 120, 0.05) 1px, transparent 1px),
+      radial-gradient(ellipse at 50% 0%, rgba(160, 180, 175, 0.12) 0%, transparent 70%);
+    background-size: 24px 24px, 100% 100%;
+    background-attachment: fixed;
+  }
+}
+
+/* 瓷器釉光卡片 */
+.glaze-card {
+  background: linear-gradient(135deg, rgba(248,250,249,0.85) 0%, rgba(240,244,242,0.55) 100%);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 8px 28px rgba(100,120,110,0.05), inset 0 0 0 1px rgba(255,255,255,0.7);
+}
+
+/* 素坯纹理（阅读区底） */
+.paper-texture {
+  background-color: #f2f4f2;
+  background-image:
+    linear-gradient(rgba(120,140,130,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(120,140,130,0.03) 1px, transparent 1px);
+  background-size: 40px 40px;
+  position: relative;
+}
+
+.paper-texture::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background:
+    radial-gradient(ellipse at 20% 0%, rgba(150,175,165,0.1) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 100%, rgba(150,175,165,0.06) 0%, transparent 50%);
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+.reading-content {
+  font-family: "Noto Serif SC", "STSong", "Songti SC", serif;
+  font-size: 1rem;
+  line-height: 1.75;
+  color: #3a403e;
+}
+
+/* 阅读区顶部光晕 — 模拟台灯照在书页上 */
+.reading-light {
+  position: relative;
+}
+
+.reading-light::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 15%;
+  right: 15%;
+  height: 280px;
+  background: radial-gradient(ellipse at 50% 0%, rgba(180, 200, 190, 0.15) 0%, rgba(170, 190, 180, 0.06) 40%, transparent 70%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* 素坯底调 */
+.warm-study {
+  background-color: #f2f4f2;
+}
+
+.warm-panel {
+  background: linear-gradient(180deg, #f5f7f5 0%, #eef1ef 100%);
+}
+
+.warm-glow {
+  box-shadow: 0 0 60px rgba(140,165,155,0.08), 0 1px 0 rgba(120,140,130,0.05);
+}
+
+/* Swipe card utilities */
+.swipe-card {
+  touch-action: pan-y;
+  will-change: transform;
+}
+
+.swipe-card--right {
+  box-shadow: 0 0 30px rgba(93, 130, 120, 0.15);
+}
+
+.swipe-card--left {
+  box-shadow: 0 0 20px rgba(180, 120, 80, 0.1);
+}
+
+/* Scrollbar thin for review stream */
+.scrollbar-thin::-webkit-scrollbar {
+  height: 3px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb {
+  background: rgba(193, 199, 196, 0.4);
+  border-radius: 3px;
+}
+
+/* Collision card tension type colors (handled inline via CollisionCard) */
+
+input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  height: 16px;
+  width: 16px;
+  border-radius: 50%;
+  background: #5d8278;
+  cursor: pointer;
+  margin-top: -6px;
+  box-shadow: 0 0 10px rgba(93, 130, 120, 0.35);
+}
+
+input[type=range]::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 4px;
+  cursor: pointer;
+  background: #bcc7c3;
+  border-radius: 2px;
+}
+
+/* ── 简明主题 (clean) ── */
+[data-theme="clean"] {
+  --color-surface: #ffffff;
+  --color-surface-container: #f5f5f4;
+  --color-surface-container-high: #e7e5e4;
+  --color-on-surface: #1c1917;
+  --color-outline-variant: #d6d3d1;
+}
+
+[data-theme="clean"] body {
+  background-image: none;
+  background-color: #f9f9f9;
+}
+
+[data-theme="clean"] .warm-study {
+  background-color: #ffffff;
+}
+
+[data-theme="clean"] .paper-texture {
+  background-color: #ffffff;
+  background-image: none;
+}
+
+[data-theme="clean"] .paper-texture::before {
+  opacity: 0;
+}
+
+[data-theme="clean"] .warm-panel {
+  background: #ffffff;
+}
+
+[data-theme="clean"] .warm-glow {
+  box-shadow: 0 0 60px rgba(0, 0, 0, 0.03), 0 1px 0 rgba(0, 0, 0, 0.04);
+}
+
+[data-theme="clean"] .glaze-card {
+  background: linear-gradient(135deg, rgba(255,255,255,0.9) 0%, rgba(250,250,250,0.6) 100%);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.04), inset 0 0 0 1px rgba(0,0,0,0.04);
+}
+
+[data-theme="clean"] .reading-content {
+  color: #292524;
+}
+
+[data-theme="clean"] .reading-light::before {
+  opacity: 0.35;
+}
